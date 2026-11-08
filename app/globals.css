@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #161513;
+  --color-surface: #1c1a18;
+  --color-raised: #262421;
+  --color-line: #efe9de14;
+  --color-line-strong: #efe9de29;
+  --color-ink: #efe9de;
+  --color-ink-2: #aaa398;
+  --color-ink-3: #8a847a;
+  --color-ember: #d9562a;
+  --color-ember-soft: #f08a5d;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    background-color: #161513;
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #161513;
+    color: #efe9de;
+    font-family: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background-color: #d9562a;
+    color: #1c0d06;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f08a5d;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    transition-property: background-color, border-color, color, transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary {
+    background-color: #efe9de;
+    color: #171310;
+  }
+
+  .btn-primary:hover {
+    background-color: #ffffff;
+  }
+
+  .btn-secondary {
+    background-color: #262421;
+    color: #efe9de;
+    border: 1px solid #efe9de29;
+  }
+
+  .btn-secondary:hover {
+    background-color: #2e2b27;
+  }
+}
+
+.enter {
+  animation: rise-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation: none;
+  }
+}
