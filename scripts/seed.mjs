@@ -30,7 +30,7 @@ for (const file of ["db/schema.sql", "db/seed.sql"]) {
     .filter(Boolean);
 
   for (const statement of statements) {
-    await sql.query(statement);
+    await sql(statement);
   }
 
   console.log(`applied ${file} (${statements.length} statements)`);
