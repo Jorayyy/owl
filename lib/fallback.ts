@@ -6,19 +6,20 @@ export const fallbackBusiness: Business = {
   shortName: "Night Owls",
   area: "Palo, Leyte",
   address: {
-    line: "Palo town proper",
+    line: "YM2 Apartments, Zone 2, Brgy. Cogon",
     locality: "Palo",
     region: "Leyte",
     postalCode: "6501",
     country: "PH",
   },
   phone: {
-    display: "+63 917 000 0000",
-    e164: "+639170000000",
+    display: "+63 936 398 0185",
+    e164: "+639363980185",
   },
   messengerUrl: "https://m.me/nightowlssizzlogan",
   facebookUrl: "https://www.facebook.com/nightowlssizzlogan",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Night+Owls+Sizzlogan+Palo+Leyte",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=YM2+Apartments+Zone+2+Brgy+Cogon+Palo+Leyte",
   timezone: "Asia/Manila",
 };
 

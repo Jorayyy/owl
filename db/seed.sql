@@ -2,11 +2,11 @@ insert into business (
   id, name, short_name, area, address_line, locality, region, postal_code, country,
   phone_display, phone_e164, messenger_url, facebook_url, maps_url, timezone
 ) values (
-  1, 'Night Owls'' Sizzlogan', 'Night Owls', 'Palo, Leyte', 'Palo town proper', 'Palo', 'Leyte', '6501', 'PH',
-  '+63 917 000 0000', '+639170000000',
+  1, 'Night Owls'' Sizzlogan', 'Night Owls', 'Palo, Leyte', 'YM2 Apartments, Zone 2, Brgy. Cogon', 'Palo', 'Leyte', '6501', 'PH',
+  '+63 936 398 0185', '+639363980185',
   'https://m.me/nightowlssizzlogan',
   'https://www.facebook.com/nightowlssizzlogan',
-  'https://www.google.com/maps/search/?api=1&query=Night+Owls+Sizzlogan+Palo+Leyte',
+  'https://www.google.com/maps/search/?api=1&query=YM2+Apartments+Zone+2+Brgy+Cogon+Palo+Leyte',
   'Asia/Manila'
 )
 on conflict (id) do update set
