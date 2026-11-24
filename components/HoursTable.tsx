@@ -14,28 +14,30 @@ export function HoursTable({ hours, timezone }: { hours: DaySchedule[]; timezone
   const ordered = [...hours.slice(1), hours[0]];
 
   return (
-    <ul>
+    <dl>
       {ordered.map((day) => {
         const isToday = today === day.dayIndex;
+        const closed = day.closed || !day.open || !day.close;
         return (
-          <li
+          <div
             key={day.dayIndex}
-            className={`flex items-center justify-between gap-4 rounded-xl px-4 py-3.5 ${
-              isToday ? "bg-raised" : ""
+            className={`flex items-baseline justify-between gap-6 py-4 ${
+              isToday ? "text-ink" : "text-ink-2"
             }`}
           >
-            <span className="flex items-center gap-3 text-[15px]">
-              <span className={isToday ? "text-ink" : "text-ink-2"}>{day.day}</span>
-              {isToday ? <span className="text-[11px] text-ember">Today</span> : null}
-            </span>
-            <span className="tabular-nums text-[15px] text-ink-2">
-              {day.closed || !day.open || !day.close
-                ? "Closed"
-                : `${formatTime(day.open)} – ${formatTime(day.close)}`}
-            </span>
-          </li>
+            <dt className="flex items-center gap-2.5 text-[15px]" aria-current={isToday ? "date" : undefined}>
+              <span
+                aria-hidden
+                className={`size-1.5 rounded-full ${isToday ? "bg-ember" : "bg-transparent"}`}
+              />
+              {day.day}
+            </dt>
+            <dd className="tabular-nums text-[15px]">
+              {closed ? "Closed" : `${formatTime(day.open)} – ${formatTime(day.close)}`}
+            </dd>
+          </div>
         );
       })}
-    </ul>
+    </dl>
   );
 }

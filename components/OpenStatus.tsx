@@ -15,15 +15,18 @@ export function OpenStatus({ hours, timezone }: { hours: DaySchedule[]; timezone
   }, [hours, timezone]);
 
   const firstOpen = hours.find((day) => !day.closed && day.open);
+  const open = status?.open ?? false;
 
   return (
-    <span className="inline-flex h-8 items-center gap-2 rounded-lg border border-line bg-surface px-3 text-[13px]">
-      <span
-        aria-hidden
-        className={`size-1.5 rounded-full ${status?.open ? "bg-ember" : "bg-ink-3"}`}
-      />
-      <span className="text-ink">
-        {status ? (status.open ? "Open now" : "Closed") : "Open daily"}
+    <span className="inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm">
+      <span className="inline-flex items-center gap-2 text-ink-2">
+        <span aria-hidden className={`size-1.5 rounded-full ${open ? "bg-ember" : "bg-ink-3"}`} />
+        <span className={open ? "text-ink" : "text-ink-2"}>
+          {status ? (open ? "Open now" : "Closed") : "Open daily"}
+        </span>
+      </span>
+      <span aria-hidden className="text-ink-3">
+        ·
       </span>
       <span className="text-ink-3">
         {status

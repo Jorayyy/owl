@@ -53,7 +53,7 @@ export default async function Home() {
       />
       <SiteHeader business={business} />
       <main>
-        <Hero business={business} hours={hours} />
+        <Hero business={business} hours={hours} groups={groups} />
         <MenuBoard groups={groups} messengerUrl={business.messengerUrl} />
         <HoursSection business={business} hours={hours} />
         <Visit business={business} />

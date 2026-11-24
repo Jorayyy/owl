@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { metaDescription, metaTitle, siteUrl } from "@/lib/site";
@@ -10,10 +10,9 @@ const sans = Instrument_Sans({
   display: "swap",
 });
 
-const serif = Instrument_Serif({
+const serif = Fraunces({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#161513",
+  themeColor: "#14110d",
   colorScheme: "dark",
 };
 

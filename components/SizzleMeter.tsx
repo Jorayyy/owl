@@ -7,8 +7,8 @@ export function SizzleMeter({ level }: { level: Heat }) {
       {[1, 2, 3].map((step) => (
         <Flame
           key={step}
-          size={16}
-          strokeWidth={1.5}
+          size={15}
+          strokeWidth={1.75}
           aria-hidden
           fill={step <= level ? "currentColor" : "none"}
           className={step <= level ? "text-ember" : "text-ink-3/40"}

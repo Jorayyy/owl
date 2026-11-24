@@ -1,30 +1,31 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg: #161513;
-  --color-surface: #1c1a18;
-  --color-raised: #262421;
-  --color-line: #efe9de14;
-  --color-line-strong: #efe9de29;
-  --color-ink: #efe9de;
-  --color-ink-2: #aaa398;
-  --color-ink-3: #8a847a;
-  --color-ember: #d9562a;
-  --color-ember-soft: #f08a5d;
+  --color-bg: #14110d;
+  --color-surface: #1b1712;
+  --color-raised: #26211a;
+  --color-line: #f0eadf14;
+  --color-line-strong: #f0eadf2e;
+  --color-ink: #f4efe4;
+  --color-ink-2: #c7bfaf;
+  --color-ink-3: #9a9283;
+  --color-ember: #e4572e;
+  --color-ember-soft: #f49a6a;
   --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 }
 
 @layer base {
   html {
-    background-color: #161513;
+    background-color: #14110d;
     color-scheme: dark;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #161513;
-    color: #efe9de;
+    background-color: #14110d;
+    color: #f4efe4;
     font-family: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -32,12 +33,12 @@
   }
 
   ::selection {
-    background-color: #d9562a;
-    color: #1c0d06;
+    background-color: #e4572e;
+    color: #1b0d07;
   }
 
   :focus-visible {
-    outline: 2px solid #f08a5d;
+    outline: 2px solid #f49a6a;
     outline-offset: 3px;
   }
 
@@ -54,50 +55,83 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    height: 48px;
-    padding: 0 20px;
-    border-radius: 10px;
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 2px;
     font-size: 15px;
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
-    transition-property: background-color, border-color, color, transform;
-    transition-duration: 150ms;
+    transition-property: background-color, color, transform;
+    transition-duration: 160ms;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .btn:active {
-    transform: scale(0.98);
+    transform: translateY(1px);
   }
 
   .btn-primary {
-    background-color: #efe9de;
-    color: #171310;
+    background-color: #e4572e;
+    color: #1b0d07;
   }
 
   .btn-primary:hover {
-    background-color: #ffffff;
+    background-color: #f49a6a;
   }
 
   .btn-secondary {
-    background-color: #262421;
-    color: #efe9de;
-    border: 1px solid #efe9de29;
+    background-color: #26211a;
+    color: #f4efe4;
   }
 
   .btn-secondary:hover {
-    background-color: #2e2b27;
+    background-color: #302a21;
   }
 }
 
+.leader {
+  flex: 1 1 0;
+  align-self: flex-end;
+  height: 0;
+  min-width: 16px;
+  margin-bottom: 6px;
+  border-top: 1px dotted #f0eadf2e;
+}
+
 .enter {
-  animation: rise-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise-in 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.enter-late {
+  animation: rise-in 560ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
 }
 
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -106,7 +140,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .enter {
+  .enter,
+  .enter-late {
     animation: none;
   }
 }

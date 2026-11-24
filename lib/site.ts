@@ -1,4 +1,4 @@
-const fallbackSiteUrl = "https://nightowlssizzlogan.vercel.app";
+const fallbackSiteUrl = "https://owl-mu.vercel.app";
 
 function resolveSiteUrl(value: string | undefined, fallback: string) {
   if (!value) return fallback;

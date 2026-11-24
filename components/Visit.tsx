@@ -12,8 +12,8 @@ function Row({
   children: ReactNode;
 }) {
   return (
-    <li className="flex gap-4 py-4 first:pt-0 last:pb-0">
-      <Icon size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-ink-3" aria-hidden />
+    <li className="flex gap-4">
+      <Icon size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-ember" aria-hidden />
       <div className="min-w-0">
         <p className="text-xs text-ink-3">{label}</p>
         <div className="mt-1 text-[15px] text-ink">{children}</div>
@@ -33,18 +33,21 @@ export function Visit({ business }: { business: Business }) {
     .join(", ");
 
   return (
-    <section id="visit" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+    <section id="visit" className="reveal scroll-mt-20 bg-surface py-24 sm:py-32">
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>
-          <h2 className="font-display text-4xl tracking-[-0.02em] sm:text-5xl">
+          <h2 className="font-display text-4xl font-semibold leading-[1.02] tracking-[-0.02em] sm:text-5xl">
             Come by after work
           </h2>
           <p className="mt-4 max-w-sm text-ink-2">
             A short ride from Tacloban. Walk in, or message ahead for pickup.
           </p>
+          <p className="mt-8 max-w-sm font-display text-2xl font-medium leading-snug text-ink">
+            {address}
+          </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a className="btn btn-primary" href={`tel:${business.phone.e164}`}>
-              <Phone size={18} strokeWidth={1.5} aria-hidden />
+              <Phone size={18} strokeWidth={1.75} aria-hidden />
               Call {business.phone.display}
             </a>
             <a
@@ -53,54 +56,52 @@ export function Visit({ business }: { business: Business }) {
               target="_blank"
               rel="noreferrer"
             >
-              <MessageCircle size={18} strokeWidth={1.5} aria-hidden />
+              <MessageCircle size={18} strokeWidth={1.75} aria-hidden />
               Message us
             </a>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
-          <ul className="divide-y divide-line">
-            <Row icon={MapPin} label="Address">
-              <a
-                href={business.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-ember-soft"
-              >
-                {address}
-              </a>
-            </Row>
-            <Row icon={Phone} label="Phone">
-              <a
-                href={`tel:${business.phone.e164}`}
-                className="tabular-nums transition-colors hover:text-ember-soft"
-              >
-                {business.phone.display}
-              </a>
-            </Row>
-            <Row icon={MessageCircle} label="Messenger">
-              <a
-                href={business.messengerUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-ember-soft"
-              >
-                m.me/nightowlssizzlogan
-              </a>
-            </Row>
-            <Row icon={ArrowUpRight} label="Facebook">
-              <a
-                href={business.facebookUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="transition-colors hover:text-ember-soft"
-              >
-                Night Owls’ Sizzlogan
-              </a>
-            </Row>
-          </ul>
-        </div>
+        <ul className="space-y-7 lg:pt-2">
+          <Row icon={MapPin} label="Address">
+            <a
+              href={business.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-ember-soft"
+            >
+              {address}
+            </a>
+          </Row>
+          <Row icon={Phone} label="Phone">
+            <a
+              href={`tel:${business.phone.e164}`}
+              className="tabular-nums transition-colors hover:text-ember-soft"
+            >
+              {business.phone.display}
+            </a>
+          </Row>
+          <Row icon={MessageCircle} label="Messenger">
+            <a
+              href={business.messengerUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-ember-soft"
+            >
+              m.me/nightowlssizzlogan
+            </a>
+          </Row>
+          <Row icon={ArrowUpRight} label="Facebook">
+            <a
+              href={business.facebookUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-ember-soft"
+            >
+              Night Owls’ Sizzlogan
+            </a>
+          </Row>
+        </ul>
       </div>
     </section>
   );
